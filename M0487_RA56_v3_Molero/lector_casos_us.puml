@@ -1,0 +1,31 @@
+@startuml
+left to right direction
+
+actor Lector
+actor Admin
+
+usecase "Iniciar sessió" as Login
+usecase "Llistar llibres" as Llistar
+usecase "Fer préstec de llibres" as Prestec
+usecase "Tornar llibres" as Tornar
+usecase "Valorar llibre" as Valorar
+usecase "Consultar préstecs actius" as ConsultarPrestecs
+usecase "Afegir llibre" as Afegir
+usecase "Eliminar llibre" as Eliminar
+usecase "Modificar dades llibre" as Modificar
+usecase "Gestionar usuaris" as GestionarUsuaris
+
+Lector --> Login
+Lector --> Llistar
+Lector --> Prestec
+Lector --> Tornar
+Lector --> Valorar
+Lector --> ConsultarPrestecs
+
+Admin --> Login
+Admin --> Llistar
+Admin --> Afegir
+Admin --> Eliminar
+Admin --> Modificar
+Admin --> GestionarUsuaris
+@enduml

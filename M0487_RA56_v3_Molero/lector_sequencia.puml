@@ -1,0 +1,32 @@
+@startuml
+actor Lector
+
+participant "Sistema" as Sistema
+participant "Base de Dades" as BD
+
+== Inici de sessió ==
+Lector -> Sistema : Iniciar sessió(usuari, contrasenya)
+Sistema -> BD : Validar credencials
+BD --> Sistema : OK
+Sistema --> Lector : Mostra menú lector
+
+== Consultar llibres ==
+Lector -> Sistema : Selecciona opció: Llistar llibres
+Sistema -> BD : Consultar llibres disponibles
+BD --> Sistema : Llista de llibres
+Sistema --> Lector : Mostra llista
+
+== Fer préstec ==
+Lector -> Sistema : Selecciona llibre per fer préstec
+Sistema -> BD : Comprovar disponibilitat
+BD --> Sistema : Disponible
+Sistema -> BD : Registrar préstec
+BD --> Sistema : Confirmació
+Sistema --> Lector : Préstec realitzat amb èxit
+
+== Opcional: Valorar llibre ==
+Lector -> Sistema : Envia valoració (ID llibre, puntuació)
+Sistema -> BD : Guardar valoració
+BD --> Sistema : Confirmació
+Sistema --> Lector : Valoració enregistrada
+@enduml
